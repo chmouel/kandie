@@ -7,6 +7,7 @@ import (
 
 	"github.com/charmbracelet/bubbles/table"
 	"github.com/charmbracelet/lipgloss"
+	"github.com/chmouel/kandie/pkg/ui"
 	corev1 "k8s.io/api/core/v1"
 )
 
@@ -74,7 +75,7 @@ func (a *App) choosePod(ctx context.Context) (string, error) {
 			colorPhase(pod.Status.Phase),
 		}
 	}
-	selected, err := makeTable(columns, rows)
+	selected, err := ui.NewTable(columns, rows)
 	if err != nil {
 		return "", err
 	}

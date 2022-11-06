@@ -1,4 +1,4 @@
-package kandie
+package ui
 
 import (
 	"github.com/charmbracelet/bubbles/table"
@@ -44,7 +44,7 @@ func (m *model) View() string {
 	return baseStyle.Render(m.table.View()) + "\n"
 }
 
-func makeTable(columns []table.Column, rows []table.Row) (string, error) {
+func NewTable(columns []table.Column, rows []table.Row) (string, error) {
 	t := table.New(
 		table.WithColumns(columns),
 		table.WithRows(rows),
