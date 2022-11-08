@@ -6,8 +6,14 @@ require (
 	github.com/charmbracelet/bubbles v0.14.0
 	github.com/charmbracelet/bubbletea v0.22.1
 	github.com/charmbracelet/lipgloss v0.6.0
+	github.com/juju/ansiterm v1.0.0
 	github.com/urfave/cli/v2 v2.23.4
 	k8s.io/client-go v0.25.3
+)
+
+require (
+	github.com/lunixbochs/vtclean v1.0.0 // indirect
+	github.com/mattn/go-colorable v0.1.10 // indirect
 )
 
 require (

@@ -3,15 +3,24 @@ package kandie
 import (
 	"context"
 	"fmt"
+	"io"
+	"os"
 	"strings"
 
 	"github.com/urfave/cli/v2"
 )
 
+type IOStreams struct {
+	In     io.ReadCloser
+	Out    io.Writer
+	ErrOut io.Writer
+}
+
 type App struct {
 	target string
 	clictx *cli.Context
 	kc     *KubeClient
+	iost   IOStreams
 }
 
 // cli return an app
@@ -68,6 +77,11 @@ func (app *App) Construct() *cli.App {
 func Run(args []string) error {
 	app := App{
 		kc: &KubeClient{},
+		iost: IOStreams{
+			In:     os.Stdin,
+			Out:    os.Stdout,
+			ErrOut: os.Stderr,
+		},
 	}
 	return app.Construct().Run(args)
 }
